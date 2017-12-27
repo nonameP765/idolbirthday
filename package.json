@@ -1,0 +1,23 @@
+{
+  "name": "idolbirthday",
+  "version": "1.0.0",
+  "description": "## 본가 캐릭터(아이마스, 밀리마스)캐릭터들의 생일을 웹으로 들어오면 알려주는 web, api 서버 입니다!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blgada12/idolbirthday.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Blgada12/idolbirthday/issues"
+  },
+  "homepage": "https://github.com/Blgada12/idolbirthday#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "multer": "^1.3.0"
+  }
+}

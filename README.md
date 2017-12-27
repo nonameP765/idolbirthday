@@ -9,3 +9,7 @@
 ### first
 
 README.md 추가
+
+### 2day_Result
+
+현재 http://idolbirthday.oa.to 구동중인 코드
