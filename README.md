@@ -13,3 +13,9 @@ README.md 추가
 ### 2day_Result
 
 현재 http://idolbirthday.oa.to 구동중인 코드
+
+### middle
+
+부트스트랩 탬플릿으로 구현
+ui대폭 변경
+반응형 웹페이지로 개조

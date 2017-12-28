@@ -5,27 +5,124 @@
     font-weight: normal;
 }
 body {
-  text-align: center;
-  font-family: "nanum-sqare";
+  text-align: center!important;
+  background-color: gray!important;
 }
-img {
-  vertical-align:middle;
-  height: 370px;
-  margin-bottom: 10px;
-}
-.idolbox {
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-  width: 300px;
-  height: 450px;
+.container{
+  display: flex;
+  justify-content: center;
 }
 
-.nonimgidolbox {
-    padding-top: 20px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    width: 300px;
-    height: 75px
+@media screen and (max-width:786px), screen and (max-height:786px){
+  .carousel-caption{
+    padding-bottom: 7.5px!important;
+  }
+  .carousel{
+    width: 300px
+  }
+  .carousel-inner{
+    height: 400px;
+  }
+  .carousel-item{
+    height: 100%;
+    width: 100%;
+  }
+  .img_h{
+    width: auto!important;
+    height: 275px;
+    margin-bottom: 150px;
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .img_data{
+    font-size: 0.7em
+  }
+  .carousel{
+    margin-bottom: 20px;
+  }
+  #upsidedown{
+    bottom: 15px;
+    right: 15px;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+  }
+}
+@media screen and (min-width:786px) and (min-height:786px){
+  .carousel-item{
+    height: 100%;
+    width: 100%;
+  }
+  .carousel{
+    width: 400px
+  }
+  .carousel-inner{
+    height: 550px;
+  }
+  .carousel-item{
+    height: 100%;
+    width: 100%;
+  }
+  .img_h{
+    width: auto!important;
+    height: 375px;
+    margin-bottom: 150px;
+    position: relative;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .img_data{
+    font-size: 1.1em
+  }
+  .carousel{
+    margin-bottom: 50px;
+  }
+  #upsidedown{
+    bottom: 25px;
+    right: 25px;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+  }
+}
+.carousel-inner{
+  -webkit-border-radius: 25px!important;
+  -moz-border-radius: 25px!important;
+  border-radius: 25px!important;
+  -khtml-border-radius: 25px!important;
+  border: 0px;
+  z-index: 3;
+}
+.carousel-control-prev{
+  z-index: 4;
+}
+.carousel-control-next{
+  z-index: 4;
+}
+.col{
+  display: flex;
+  justify-content: center;
+
+}
+#firstPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#secondPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selet{
+  margin-left: 10px;
+
+}
+form{
+  color: white!important;
 }

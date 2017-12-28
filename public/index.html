@@ -7,107 +7,75 @@
     <title>아이돌마스터 생일 정보</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="./script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-      최신 업데이트 - 2017.12.27 오후 1시 58분 / 아이돌 분류를 checkbox로 구현, api 최적화 4단계, api설명 기록
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">아이돌마스터 생일 정보</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <form class="form-inline my-2 my-lg-0" name="whereform">
+          <input type="checkbox" name="whereselect" class="selet" value="0" >본가 아이돌마스터</input>
+          <input type="checkbox" name="whereselect" class="selet" value="1" >밀리언 라이브</input>
+          <input type="checkbox" name="whereselect" class="selet" value="2" >디어리 스타즈</input>
+          <input type="checkbox" name="whereselect" class="selet" value="3" >신데렐라 걸즈</input>
+          <input type="checkbox" name="whereselect" class="selet" value="4" >기타</input>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <img src="asset/img/godown.png" id="upsidedown">
+      <div class="row">
+        <div id="firstPage" class="col">
+          <h3 id="windw_err">창 크키가 너무 작습니다!</h3>
+          <div id="c_currentbirth" class="carousel slide" data-interval="false">
+              <h2>오늘 생일인 아이돌</h2>
+            <ol id="c_currentbirth_li" class="carousel-indicators">
+            </ol>
+            <div id="c_currentbirth_img" class="carousel-inner">
+            </div>
+            <a class="carousel-control-prev" href="#c_currentbirth" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#c_currentbirth" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+        <div class="w-100"></div>
+        <div id="secondPage" class="col">
+          <div id="c_soonbirth" class="carousel slide" data-interval="false">
+            <h2>곧 생일인 아이돌</h2>
+            <ol id="c_soonbirth_li" class="carousel-indicators">
+            </ol>
+            <div id="c_soonbirth_img" class="carousel-inner">
+            </div>
+            <a class="carousel-control-prev" href="#c_soonbirth" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#c_soonbirth" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <form name="whereform">
-      <input type="checkbox" name="whereselect"  value="0" >본가 아이돌마스터</radio>
-      <input type="checkbox" name="whereselect"  value="1" >밀리언 라이브</radio>
-      <input type="checkbox" name="whereselect"  value="2" >디어리 스타즈</radio>
-      <input type="checkbox" name="whereselect"  value="3" >신데렐라 걸즈</radio>
-      <input type="checkbox" name="whereselect"  value="4" >기타</radio>
-    </form>
-    <h1>오늘 생일인 아이돌</h1>
-    <div id="todayBirth"></div>
-    <h1>곧 생일인 아이돌</h1>
-    <div id="soonBirth"></div>
 
-
-
-    <h3>업데이트 내역</h3>
-    <p>
-      2017.12.27 오전 1시 40분 / 최적화 3단계, 스타일 정렬 방식 변경, 곧 생일인 아이돌 같은날짜인 아이돌을 같은 줄로 구분
-    </p>
-    <p>
-      2017.12.27 오전 1시 14분 / 최적화 2단계 진행. 모든아이돌 보기를 버튼 후 불러오게 변경, 소속별로 생일 보기 가능
-    </p>
-    <p>
-      2017.12.27 오전 12시 30분 / api화, 최적화 1단계 진행, 곧 생일인 아이돌 3번째 이후 날짜까지 나옴
-    </p>
-    <p>
-      2017.12.25 오후 9시 / 신데마스 캐릭터 전체 추가
-    </p>
-    <p>
-      2017.12.25 오후 8시 / 디어리 스타즈 캐릭터 추가, 신데마스 캐릭터 일부 추가.
-    </p>
-    <p>
-      2017.12.25 오전 11시 40분 / 아이돌 소속 추가
-    </p>
-    <p>
-      2017.12.25 오전 11시 7분 / 밀리언 라이브 아이돌 모두 추가, json 데이터 분리(최적화)
-    </p>
-    <p>
-      2017.12.25 오전 3시 16분 / 밀리언 라이브 댄스타입 아이돌 추가 완료
-    </p>
-    <p>
-      2017.12.25 오전 2시 55분 / 모든 아이돌 생일 보기 추가(아래쪽으로 스크롤하세요!)
-    </p>
-    <p>
-      2017.12.25 오전 2시 45분 / 자바스크립트 최적화, 생일 중복 처리 완료
-    </p>
-    <p>
-    2017.12.25 오전 2시 25분 / 밀리마스 보컬 캐릭터 업데이트, 자바스크립트 오류 수정
-    </p>
-    <br>
-
-    <h3>API 사용법</h3>
-    <p>
-      where의 value값 설명 0:765본가 1:765밀리 2:876디어리스타즈 3:346신데마스 4:기타(아키즈키료 특별)<br><br>
-
-      <b>http://ngdb.iptime.org:765/api/posts/name(POST)</b><br><br>
-      이름 검색<br><br>
-      입력값 : {<br>
-      "name" : 검색할 문자열,-필수<br>
-      "where" : 소속-필수<br>
-      }<br><br>
-      출력은 아이돌 객체가 1차원 배열 []에 감싸져 나온다.<br><br><br>
-
-      <b>http://ngdb.iptime.org:765/api/posts/day(POST)</b><br><br>
-      생일 날짜 검색<br><br>
-      입력값 : {<br>
-      "month" :  월,-필수<br>
-      "day" : 일,-필수<br>
-      "where" : 소속-필수<br>
-      }<br><br>
-      출력은 아이돌 객체가 1차원 배열 []에 감싸져 나온다.(생일이 같은 경우)<br><br><br>
-
-      <b>http://ngdb.iptime.org:765/api/posts/day(POST)</b><br><br>
-      다음 생일 날짜 검색<br><br>
-      입력값 : {<br>
-      "month" :  월,-필수<br>
-      "day" : 일,-필수<br>
-      "where" : 소속,-필수<br>
-      "index" : 받을 양-필수<br>
-      }<br><br>
-      출력은 아이돌 객체가 2차원 배열 []에 감싸져 나온다. 다시 말해 날짜가 같은 것끼리 1차원 배열로 묶이고, 묶인것들이 1차원 배열로 뭉쳐 총 2차원 배열로 나온다.<br><br><br>
-
-      <b>http://ngdb.iptime.org:765/api/get/all(GET)</b><br><br>
-      생일 전체 출력<br><br>
-      입력값 :  없음<br><br>
-      모든 아이돌의 정보가 1차원 배열로 출력된다.<br>
-    </p>
-    <br>
-    <h3>모든 아이돌 생일 보기(최적화를 위해 사진 미지원)</h3>
-    <p>현재 총 50명. 본가마스, 밀리마스 캐릭터들이 들어가 있습니다!(신데 추가중..)</p>
-    <p>ctrl + f 나 command + f를 누르고 이름을 찾는 것을 추천드립니다.</p>
-    <div>
-      <input class="all_btn" type="button" id="allshow_with_img" value="아이돌 전체보기/이미지 포함">
-      <input class="all_btn" type="button" id="allshow_without_img" value="아이돌 전체보기/이미지 비포함">
-      <input class="all_btn" type="button" id="allshow_fold" value="접기">
-    </div>
-    <div id="allshow">
-    </div>
 </body>
 </html>
